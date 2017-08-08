@@ -5,7 +5,7 @@ For example:
 
 ```
 FLAT:
-j'{int:{range:"0, 2, 4-6"}}'.FLAT({format:list, out:all})
+j'{"type":"int", "rule":{"range":"0,2,4-6"}}'.FLAT({"out":"list", "format":"value"})
 
 Output:
 [0, 2, 4, 5, 6]
