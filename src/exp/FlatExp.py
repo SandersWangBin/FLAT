@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import os
-from FlatExpCons import * 
+from FlatExpCons import *
 
 import sys
 sys.path.append('../')
@@ -24,3 +24,12 @@ class FlatExp:
             argTuple = argTuple + (argValue,)
         obj = eval(EXP_CLASS_VALUES[ruleExpType])
         return obj
+
+    @staticmethod
+    def generateOutput(geneList, geneElement):
+        output = list()
+        for t in geneList:
+            value, matched, desc = t
+            e = eval(geneElement)
+            if e != None: output.append(e)
+        return output
