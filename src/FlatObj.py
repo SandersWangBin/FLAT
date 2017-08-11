@@ -11,6 +11,8 @@ class FlatObj:
         ruleExp, outExp = self.initFlatObj(flatExp)
         self.ruleObj = FlatExp.parser(ruleExp)
         self.outObj = FlatExp.parser(outExp)
+        self.output = FlatExp.generateOutput(self.ruleObj.generatedList, \
+                                             self.outObj.generatedElement)
 
     def initFlatObj(self, flatExp):
         match = re.search(self.REG_FLAT_OBJ_EXP, flatExp)
@@ -24,5 +26,6 @@ class FlatObj:
         returnStr = "==== FlatObj Debug Info ====\n" + \
             "= objName: " + str(self.objName) + "\n" + \
             "= ruleObj: " + str(self.ruleObj) + "\n" + \
-            "= outObj : " + str(self.outObj) + "\n"
+            "= outObj : " + str(self.outObj) + "\n" + \
+            "= output : " + str(self.output) + "\n"
         return returnStr
