@@ -8,6 +8,7 @@ class FlatObj:
 
     def __init__(self, flatExp, objName=None):
         self.objName = objName
+        self.flatExp = flatExp
         ruleExp, outExp = self.initFlatObj(flatExp)
         self.ruleObj = FlatExp.parser(ruleExp)
         self.outObj = FlatExp.parser(outExp)
@@ -25,7 +26,6 @@ class FlatObj:
     def __str__(self):
         returnStr = "==== FlatObj Debug Info ====\n" + \
             "= objName: " + str(self.objName) + "\n" + \
-            "= ruleObj: " + str(self.ruleObj) + "\n" + \
-            "= outObj : " + str(self.outObj) + "\n" + \
+            "= FlatExp: " + str(self.flatExp) + "\n" + \
             "= output : " + str(self.output) + "\n"
         return returnStr
