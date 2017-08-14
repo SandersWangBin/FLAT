@@ -16,7 +16,7 @@ class FlatStr:
     def formatInitValues(self):
         if self.initRegex == None:
             self.initRegex = '^'+self.initDefault+'$'
-            self.initLength = [len(self.initdefault)]
+            self.initLength = [len(self.initDefault)]
 
     def generate(self):
         self.generatedList = list()
