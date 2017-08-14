@@ -21,7 +21,8 @@ EXP_TYPE_VALUES = [EXP_TYPE_INT, \
                    EXP_TYPE_LIST]
 
 EXP_RULE_VALUES = {EXP_TYPE_INT: \
-                       [EXP_RULE_RANGE], \
+                       [EXP_RULE_DEFAULT, \
+                        EXP_RULE_RANGE], \
                     EXP_TYPE_STR: \
                        [EXP_RULE_DEFAULT, \
                         EXP_RULE_REGEX, \
