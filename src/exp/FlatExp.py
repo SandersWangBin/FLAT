@@ -1,13 +1,11 @@
 #!/usr/bin/env python
 
 import os
-from FlatExpCons import *
+from FlatExpCons import * 
 
-import sys
-sys.path.append('../')
-from lib.FlatInt import FlatInt
-from lib.FlatStr import FlatStr
-from lib.FlatList import FlatList
+from flat.lib.FlatInt import FlatInt
+from flat.lib.FlatStr import FlatStr
+from flat.lib.FlatList import FlatList
 
 class FlatExp:
     @staticmethod
@@ -29,7 +27,7 @@ class FlatExp:
     def generateOutput(geneList, geneElement):
         output = list()
         for t in geneList:
-            value, matched, desc = t
+            value, matched, desc, default = t
             e = eval(geneElement)
             if e != None: output.append(e)
         return output
