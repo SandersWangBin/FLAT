@@ -3,9 +3,11 @@
 import os
 from FlatExpCons import * 
 
-from flat.lib.FlatInt import FlatInt
-from flat.lib.FlatStr import FlatStr
-from flat.lib.FlatList import FlatList
+import sys
+sys.path.append('../')
+from lib.FlatInt import FlatInt
+from lib.FlatStr import FlatStr
+from lib.FlatList import FlatList
 
 class FlatExp:
     @staticmethod
