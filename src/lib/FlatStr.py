@@ -4,7 +4,7 @@
 import re
 
 class FlatStr:
-    CHAR_SPECIAL = """!"#%&/()=?@${[]}+\^~*'-_:.;,צהו"""
+    CHAR_SPECIAL = """!"#%&/()=?@${[]}+\^~*'-_:.;,öäå"""
     CHAR_LETTER = 'atoz'
     CHAR_NUMBER = '0369'
 
@@ -20,12 +20,18 @@ class FlatStr:
 
     def generate(self):
         self.generatedList = list()
-        self.generatedList.append((self.initDefault, True, \
-                                   self.generateDesc(self.initDefault)))
+        if type(self.initDefault) is str:
+            self.generatedList.append((self.initDefault, True, \
+                                       self.generateDesc(self.initDefault), \
+                                       True))
+        elif type(self.initDefault) is list:
+            for v in self.initDefault:
+                self.generatedList.append((v, True, self.generateDesc(v), True))
+
         for v in self.convertCase(self.initDefault):
             m = True if re.search(self.initRegex, v) else False
             d = self.generateDesc(v)
-            self.generatedList.append((v, m, d))
+            self.generatedList.append((v, m, d, False))
 
         self.addGeneratedList(self.CHAR_LETTER)
         self.addGeneratedList(self.CHAR_NUMBER)
@@ -36,7 +42,7 @@ class FlatStr:
         for v in self.convertChar(self.initDefault, c):
             m = True if re.search(self.initRegex, v) else False
             d = self.generateDesc(v)
-            self.generatedList.append((v, m, d))
+            self.generatedList.append((v, m, d, False))
 
     def convertCase(self, v):
         caseList = list()
