@@ -2,7 +2,7 @@
 
 class FlatInt:
     def __init__(self, arg):
-        initRange, = arg
+        self.initDefault, initRange = arg
         self.initRangeList = self.formatInitRange(initRange)
         self.generatedList = self.generate(self.initRangeList) \
                              if len(self.initRangeList)>0 else list()
@@ -16,8 +16,9 @@ class FlatInt:
             currStatus = v in initRange
             if currStatus != prevStatus:
                 if not prevAdded: geneRange.append((prevValue, prevStatus, \
-                                  self.generateDesc(prevValue)))
-                geneRange.append((v, currStatus, self.generateDesc(v)))
+                                  self.generateDesc(prevValue), \
+                                  prevValue==self.initDefault))
+                geneRange.append((v, currStatus, self.generateDesc(v), v==self.initDefault))
                 prevAdded = True
             else:
                 prevAdded = False
