@@ -4,7 +4,7 @@
 import re
 
 class FlatStr:
-    CHAR_SPECIAL = """!"#%&/()=?@${[]}+\^~*'-_:.;,öäå"""
+    CHAR_SPECIAL = """!"#%&/()=?@${[]}+\^~*'-_:.;,���"""
     CHAR_LETTER = 'atoz'
     CHAR_NUMBER = '0369'
 
